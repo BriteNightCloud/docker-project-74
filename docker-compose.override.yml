@@ -1,8 +1,5 @@
 services:
   app:
-    extends:
-      file: docker-compose.yml
-      service: app
     build:
       dockerfile: Dockerfile
     ports:
@@ -12,9 +9,7 @@ services:
     command: make dev
 
   db:
-    extends:
-      file: docker-compose.yml
-      service: db
+    image: postgres
 
   caddy:
     image: caddy
