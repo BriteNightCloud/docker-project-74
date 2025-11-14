@@ -1,7 +1,9 @@
 services:
   app:
-    build: .
-    image: hexlet-app:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+    image: britenightcloud/docker-project-74
     container_name: hexlet-app
     volumes:
       - "./app:/app"
