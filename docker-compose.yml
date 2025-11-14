@@ -5,6 +5,7 @@ services:
       dockerfile: Dockerfile.production
     image: britenightcloud/docker-project-74
     container_name: hexlet-app
+    command: make test
     env_file:
       - .env
     depends_on:

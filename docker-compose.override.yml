@@ -11,6 +11,11 @@ services:
       - "./app:/app"
     command: make dev
 
+  db:
+    extends:
+      file: docker-compose.yml
+      service: db
+
   caddy:
     image: caddy
     container_name: hexlet-caddy
