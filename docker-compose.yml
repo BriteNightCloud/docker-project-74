@@ -5,3 +5,20 @@ services:
       dockerfile: Dockerfile.production
     image: britenightcloud/docker-project-74
     container_name: hexlet-app
+    depends_on:
+      - db
+    links:
+      - db
+
+  db:
+    image: postgres
+    container_name: hexlet-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
